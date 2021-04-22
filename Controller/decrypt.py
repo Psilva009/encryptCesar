@@ -11,6 +11,8 @@ class decrypt():
                     if letter.lower() == alphabet[i]:
                         positionLetter = i
                         break
+                    else:
+                        return "Verifique se a mensagem usa letras do alfabeto que você escolheu..."
                 # descriptografando
                 index = (positionLetter - key) % len(alphabet)
                 inputDecrypt += alphabet[index]

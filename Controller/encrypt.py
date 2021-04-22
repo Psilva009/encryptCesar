@@ -11,6 +11,8 @@ class encrypt():
                     if letter.lower() == alphabet[i]:
                         positionLetter = i
                         break
+                    else:
+                        return "Verifique se a mensagem usa letras do alfabeto que você escolheu..."
                 # criptografando
                 index = (positionLetter+key) % len(alphabet)
                 inputEncrypt += alphabet[index]
