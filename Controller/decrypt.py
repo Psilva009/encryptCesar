@@ -3,7 +3,8 @@ class decrypt():
         inputDecrypt = ""
         for i in range(len(input)):
             letter = input[i]
-
+            positionLetter = -1
+            
             # verificando se é um espaço
             if letter != ' ':
                 # verificando posição da letra do input
@@ -11,8 +12,9 @@ class decrypt():
                     if letter.lower() == alphabet[i]:
                         positionLetter = i
                         break
-                    else:
-                        return "Verifique se a mensagem usa letras do alfabeto que você escolheu..."
+                    
+                if(positionLetter == -1):
+                    return "Verifique se a mensagem usa letras do alfabeto que você escolheu..."
                 # descriptografando
                 index = (positionLetter - key) % len(alphabet)
                 inputDecrypt += alphabet[index]
