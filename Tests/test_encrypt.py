@@ -3,34 +3,26 @@ from Controller.encrypt import encrypt
 from Controller.alphabet import alphabet
 
 class test_encrypt(unittest.TestCase):
-    def test_verificar_retorno(self):
+    def test_verificar_retorno_word(self):
         # Arrange
-        input = ['mariana','привет']
-        key = 5
-        choiceAlphabet = ['1','2']
+        input = "teste"
+        key = 10
         # Act
-        expect=["rfwnfsf", "фхнжйч"]
+        response = encrypt().encrypt(input, key)
 
-        for i in range(len(input)):
-            a = alphabet.getAlphabet(choiceAlphabet[i])
-            response = encrypt().encrypt(input[i],key,a)
-            # Assert
-            self.assertEqual(expect[i], response)
+        # Assert
+        self.assertEqual("cnbcn", response)
             
-    def test_alfabeto_diferente_da_mensagem(self):
+    def test_verificar_retorno_text(self):
         # Arrange
-        input = ['mariana','привет']
-        key = 5
-        choiceAlphabet = ['2','1']
+        input = "testando espaco"
+        key = 10
         # Act
-        expect = "Verifique se a mensagem usa letras do alfabeto que você escolheu..."
+        response = encrypt().encrypt(input, key)
 
-        for i in range(len(input)):
-            a = alphabet.getAlphabet(choiceAlphabet[i])
-            response = encrypt().encrypt(input[i],key,a)
-        
-            # Assert
-            self.assertEqual(expect, response)
+        # Assert
+        self.assertEqual("cnbcjwmx nbyjlx", response)
+
     
 if __name__ == '__main__':
     unittest.main()

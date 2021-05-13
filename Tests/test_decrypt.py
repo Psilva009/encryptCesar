@@ -1,36 +1,28 @@
 import unittest
 from Controller.decrypt import decrypt
-from Controller.alphabet import alphabet
 
 class test_decrypt(unittest.TestCase):
-    def test_verificar_retorno(self):
+    def test_verificar_retorno_word(self):
         # Arrange
-        input = ["rfwnfsf", "фхнжйч"]
-        key = 5
-        choiceAlphabet = ['1','2']
+        input = "cnbcn"
+        key = 10
         # Act
-        expect=['mariana','привет']
-        for i in range(len(input)):
-            a = alphabet.getAlphabet(choiceAlphabet[i])
-            response = decrypt().decrypt(input[i],key,a)
+        response = decrypt().decrypt(input,key)
         
-            # Assert
-            self.assertEqual(expect[i], response)
+        # Assert
+        self.assertEqual("teste", response)
 
-    def test_alfabeto_diferente_da_mensagem(self):
+    def test_verificar_retorno_text(self):
         # Arrange
-        input = ['mariana','привет']
-        key = 5
-        choiceAlphabet = ['2','1']
+        input = "cnbcjwmx nbyjlx"
+        key = 10
         # Act
-        expect = "Verifique se a mensagem usa letras do alfabeto que você escolheu..."
-
-        for i in range(len(input)):
-            a = alphabet.getAlphabet(choiceAlphabet[i])
-            response = decrypt().decrypt(input[i],key,a)
+        response = decrypt().decrypt(input,key)
         
-            # Assert
-            self.assertEqual(expect, response)    
+        # Assert
+        self.assertEqual("testando espaco", response)    
+
+
 
 if __name__ == '__main__':
     unittest.main()
